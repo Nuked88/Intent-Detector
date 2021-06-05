@@ -4,7 +4,6 @@ from string import punctuation
 
 import nltk
 from nltk.stem.snowball import SnowballStemmer as stemmer_fn
-
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.models import Sequential
@@ -12,14 +11,24 @@ from tensorflow.keras.layers import Dense, Activation
 from tensorflow.keras import utils
 from tensorflow.keras import layers
 
+
+
 LANG = 'english'
 
 stemmer = stemmer_fn(LANG)
 nltk.download('punkt')
 
 import json
+
+
+def pre_process_words(wrds, stop):
+    return [stemmer.stem(w.lower()) for w in wrds if w not in stop]
+
 with open('data/intents.json') as json_data:
     intents = json.load(json_data)
+
+
+
 
 words = []
 documents = []
