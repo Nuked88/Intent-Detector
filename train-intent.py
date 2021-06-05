@@ -18,7 +18,7 @@ stemmer = stemmer_fn(LANG)
 nltk.download('punkt')
 
 import json
-with open('intent_chatbot/intents.json') as json_data:
+with open('data/intents.json') as json_data:
     intents = json.load(json_data)
 
 words = []
@@ -89,7 +89,7 @@ history = model.fit(np.array(X), np.array(y), epochs=500, batch_size=8)
 print("Model Training complete.")
 
 #save the model
-model.save("backup/intent_models/model2.h5")
+model.save("backup/model2.h5")
 
 print("Model saved to backup folder.")
 
