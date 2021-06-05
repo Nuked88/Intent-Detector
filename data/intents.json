@@ -1,0 +1,43 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you?", "Is anyone there?", "Hello", "Good day","Hey there"],
+         "responses": ["Hello, thanks for visiting", "Hi there, how can I help?", "Hi, how are you?", "Hi there"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye"],
+         "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."],
+         "context_set": ""
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Cheers"],
+         "responses": ["You're welcome!", "Any time!", "My pleasure"],
+         "context_set": ""
+        },
+        {"tag": "noanswer",
+         "patterns": [""],
+         "responses": ["Sorry, can't understand you. Come again.", "Please give me more info", "Not sure I understand", "If you want to stop type QUIT"],
+         "context_set": ""
+        },
+        {"tag": "experience",
+         "patterns": ["Where did you work?", "What's your experience?", "Did you work somewhere before?", "Where do you work right now?"],
+         "responses": ["I have some working experience from different fields.", "I worked as ML engineer.", "I did some projects within CV and NLP"],
+         "context_set": "more_experience"
+        },
+        {"tag": "More experience",
+        "patterns": ["Tell me something more","Elaborate on your experience","where exactly did you work","tell me about the projects you did","tell me more about it"],
+         "responses": ["Sample projects are listed on my portfolio website: https://jakubczerny.wixsite.com/portfolio", "This chatbot is one of my simple projects :)", "I worked for example on medical image segmentation but also news article classification.", "You can always check my CV (https://jakubczerny.wixsite.com/portfolio/cv).","My career started as web developer, but I always wanted to work with ML."],
+         "context_filter": "more_experience"
+        },
+        {"tag": "education",
+         "patterns": ["Where did you study?", "What did you study?", "Tell me about you education.", "What's your degree"],
+         "responses": ["I hold BSc & MSc", "I recently graduated from master degree."],
+         "context_set": "more_education"
+        },
+        {"tag": "More education",
+         "patterns": ["Where exactly did you study?", "What exactly did you study?", "Tell me more about you education.", "So what degrees do you have?", "So what degrees have you obtained?","tell me more about it"],
+         "responses": ["BSc from Maastricht University & MSc from Technical Univeristy of Denmark", "Bachelor in Data Science & master in Mathematical Modelling and Computation", "I specialize in machine learning"],
+         "context_filter": "more_education"
+        }
+   ]
+}
