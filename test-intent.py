@@ -18,14 +18,7 @@ documents = []
 words = []
 context = {}
 classes = sorted(list(set([intent['tag'] for intent in intents['intents']])))
-
 stop_words = set(list(punctuation))
-words = pre_process_words(words, stop_words)
-words = sorted(list(set(words)))
-
-LANG = 'english'
-stemmer = stemmer_fn(LANG)
-nltk.download('punkt',quiet=True)
 
 
 def pre_process_words(wrds, stop):
@@ -35,6 +28,7 @@ def pre_process_sentence(sentence, stop):
     wrds = nltk.word_tokenize(sentence)
     return [stemmer.stem(w.lower()) for w in wrds if w not in stop]
 
+    
 def bow_fn(sentence, words):
     wrds = pre_process_sentence(sentence, stop_words)
     bag = np.zeros((num_words))
@@ -44,6 +38,19 @@ def bow_fn(sentence, words):
             bag[i] = 1
             
     return bag
+
+
+
+
+
+words = pre_process_words(words, stop_words)
+words = sorted(list(set(words)))
+
+LANG = 'english'
+stemmer = stemmer_fn(LANG)
+nltk.download('punkt',quiet=True)
+
+
 
             
 # Go over the intents and their respective patterns
