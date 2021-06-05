@@ -11,7 +11,7 @@ from tensorflow.keras.models import Sequential
 
 
 
-with open('intent_chatbot/intents.json') as json_data:
+with open('data/intents.json') as json_data:
     intents = json.load(json_data)
 
 documents = []
